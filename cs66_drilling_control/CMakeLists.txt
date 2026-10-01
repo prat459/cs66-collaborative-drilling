@@ -10,6 +10,7 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 
+
 add_executable(drilling_approach
   src/drilling_approach.cpp
 )
@@ -20,6 +21,7 @@ ament_target_dependencies(
   geometry_msgs
   moveit_ros_planning_interface
 )
+
 
 add_executable(drilling_retract
   src/drilling_retract.cpp
@@ -32,6 +34,7 @@ ament_target_dependencies(
   moveit_ros_planning_interface
 )
 
+
 add_executable(drilling_contact_test
   src/drilling_contact_test.cpp
 )
@@ -41,6 +44,7 @@ ament_target_dependencies(
   rclcpp
   geometry_msgs
 )
+
 
 add_executable(drilling_force_approach
   src/drilling_force_approach.cpp
@@ -52,6 +56,8 @@ ament_target_dependencies(
   geometry_msgs
   moveit_ros_planning_interface
 )
+
+
 add_executable(drilling_cycle
   src/drilling_cycle.cpp
 )
@@ -62,6 +68,32 @@ ament_target_dependencies(
   geometry_msgs
   moveit_ros_planning_interface
 )
+
+
+add_executable(drilling_cycle_v2
+  src/drilling_cycle_v2.cpp
+)
+
+ament_target_dependencies(
+  drilling_cycle_v2
+  rclcpp
+  geometry_msgs
+  moveit_ros_planning_interface
+)
+
+
+add_executable(drilling_cycle_v2_metrics
+  src/drilling_cycle_v2_metrics.cpp
+)
+
+ament_target_dependencies(
+  drilling_cycle_v2_metrics
+  rclcpp
+  geometry_msgs
+  moveit_ros_planning_interface
+)
+
+
 install(
   TARGETS
     drilling_approach
@@ -69,6 +101,8 @@ install(
     drilling_contact_test
     drilling_force_approach
     drilling_cycle
+    drilling_cycle_v2
+    drilling_cycle_v2_metrics
   DESTINATION lib/${PROJECT_NAME}
 )
 
